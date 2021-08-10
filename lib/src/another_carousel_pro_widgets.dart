@@ -40,7 +40,7 @@ class WidgetCarousel extends StatefulWidget {
   final bool borderRadius;
 
   //Border Radius of the images. Default is [Radius.circular(8.0)]
-  final Radius radius;
+  final Radius? radius;
 
   //Move the Indicator From the Bottom
   final double moveIndicatorFromBottom;
@@ -156,9 +156,10 @@ class WidgetCarouselState extends State<WidgetCarousel> {
                             ? null
                             : BorderRadius.only(
                                 bottomLeft: widget.radius != null
-                                    ? widget.radius
+                                    ? widget.radius!
                                     : Radius.circular(8.0),
-                                bottomRight:widget.radius ?? Radius.circular(8.0)))
+                                bottomRight:
+                                    widget.radius ?? Radius.circular(8.0)))
                         : null,
                   ),
                   padding: EdgeInsets.all(widget.indicatorBgPadding),
